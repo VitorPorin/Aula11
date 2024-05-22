@@ -3,9 +3,9 @@ public class Horista extends Empregado{
     private double horas;
 
     // Construtores
-    public Horista(String newName, String newAddress, double newHour) {
-        super(newName, newAddress);
-        this.horas = newHour;
+    public Horista(String Nnome, String Nendereço, double Nhora) {
+        super(Nnome, Nendereço);
+        this.horas = Nhora;
     }
 
     public Horista() {
@@ -18,8 +18,8 @@ public class Horista extends Empregado{
     }
 
     // Método modificador
-    public void setHour(double newHour) {
-        this.horas = newHour;
+    public void setHour(double Nhora) {
+        this.horas = Nhora;
     }
 
     public void calcularSalario() {
