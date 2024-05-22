@@ -3,9 +3,9 @@ public class Mensalista extends Empregado{
     private String position;
 
     // Construtores
-    public Mensalista(String newName, String newAddress, String newPosition) {
-        super(newName, newAddress);
-        this.position = newPosition;
+    public Mensalista(String Nnome, String Nendereço, String Nposicao) {
+        super(Nnome, Nendereço);
+        this.position = Nposicao;
     }
 
     public Mensalista() {
@@ -18,8 +18,8 @@ public class Mensalista extends Empregado{
     }
 
     // Método Modificador
-    public void setPosition(String newPosition) {
-        this.position = newPosition;
+    public void setPosition(String Nposicao) {
+        this.position = Nposicao;
     }
 
     public void calcularSalario() {
