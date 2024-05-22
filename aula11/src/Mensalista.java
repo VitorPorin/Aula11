@@ -1,33 +1,37 @@
-public class Mensalista extends Empregado {
-    private String cargo;
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
+public class Mensalista extends Empregado{
     
-    //construtor
-    public Mensalista(String nome, String endereco, double salario, String cargo){
-            super(nome,endereco,salario);
-            this.cargo = cargo;
+    private String position;
+
+    // Construtores
+    public Mensalista(String newName, String newAddress, String newPosition) {
+        super(newName, newAddress);
+        this.position = newPosition;
+    }
+
+    public Mensalista() {
 
     }
 
-    
-    public void calcularSalario(){
-        if(cargo.equals("junior")){
-            salario = 2500;
-        } else if (cargo.equals("Pleno")){
-            salario = 3500;
+    // Método Acessore
+    public String getPosition() {
+        return position;
+    }
 
-        } else {
-            salario = 5500;
+    // Método Modificador
+    public void setPosition(String newPosition) {
+        this.position = newPosition;
+    }
+
+    public void calcularSalario() {
+        if (position.toUpperCase().equals("JUNIOR")){
+            salary = 3658.92;
+        }
+        else if(position.toUpperCase().equals("PLENO")) {
+            salary = 7387.42;
+        }
+        else if (position.toUpperCase().equals("SENIOR")) {
+            salary = 14399.46;
         }
     }
-
-
 }
     

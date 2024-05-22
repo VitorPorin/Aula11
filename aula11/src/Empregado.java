@@ -1,73 +1,90 @@
 public class Empregado {
     
     protected String name;
-    protected String endereco;
-    protected double salario;
-    
-    public Empregado(String name, String endereco, double salario) {
-        this.name = name;
-        this.endereco = endereco;
-        this.salario = salario;
-    }
+    protected String address;
+    protected double salary;
 
-    public Empregado(){
+    // Contrutor
+    public Empregado() {
 
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public Empregado(String newName, String newAddress) {
+        this.name = newName;
+        this.address = newAddress;
     }
 
-
+    // Métodos acessores
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public double getSalary() {
+        return this.salary;
+    }
+
+    // Métodos modificadores
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    public void setAddress(String newAddress) {
+        this.address = newAddress;
+    }
+
+    public void setSalary(double newSalary) {
+        this.salary = newSalary;
     }
 
 
-    public String getEndereco() {
-        return endereco;
-    }
+    public double calcularIrpf() {
+        double rate = 0;
 
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public double calcularIRPF() {
-        double aux = 0;
-        if (salario > 2112.01 && salario<2826.66) {
-            aux = salario * 0.075;
-
-        } else if (salario>=2826.67 && salario<=3751.05){
-            aux = salario * 0.015;          
-        } else if (salario>=3751.06 && salario<=4664.68){
-            aux = salario * 0.225;
-        } else if (salario> 4664.68){
-            aux = salario*0.275;
+        if (salary >= 2259.21 && salary <= 2825.65){
+            rate = salary * 0.075;
         }
-        return aux;
+        else if(salary > 2825.65 && salary <= 3751.05) {
+            rate = salary * 0.15;
         }
-        
-        public double calcINSS(){
-            double aux =0;
-            if (salario<=1412){
-                aux = salario *0.075;
-            }else if (salario>1412 && salario<2667){
-                aux = salario *0.09;
-            }else if (salario>2667 && salario<4000){
-                aux = salario *0.12;
-            }else if (salario>4000){
-                aux = salario *0.14;
-            }
-            return aux;
+        else if (salary > 3751.65 && salary <= 4664.68) {
+            rate = salary * 0.225;
         }
-            
+        else if (salary > 4664.68){
+            rate = salary * 0.275;
+        }
 
+        return rate;
     }
+
+    public double calcularInss() {
+        double discount = 0;
+
+        if (salary <= 1412.00) {
+            discount = salary * 0.075;
+        }
+        else if(salary > 1412.00 && salary <= 2666.68) {
+            discount = salary * 0.09 - 21.18;
+        }
+        else if(salary > 2666.68 && salary <= 4000.03) {
+            discount = salary * 0.12 - 101.18;
+        }
+        else if(salary > 4000.03 && salary <= 7786.02) {
+            discount = salary * 0.14 - 181.18;
+        }
+        else if(salary > 7786.02) {
+            discount = 908.86;
+        }
+
+        return discount;
+    }
+
+
+    
+    
+
+}
 
